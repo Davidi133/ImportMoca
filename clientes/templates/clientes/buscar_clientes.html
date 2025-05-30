@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Buscar Clientes{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1 class="h2-title">Buscar Clientes</h1>
+
+  <div class="form-row">
+    <label for="cliente">Selecciona un cliente:</label>
+    <select id="cliente" class="form-control" multiple data-max-item-count="1"></select>
+  </div>
+
+  <div class="tabla-resultados" id="tabla-pedidos-cliente" style="display:none; margin-top: 20px;">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Número</th>
+          <th>Fecha</th>
+          <th>Total (€)</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-pedidos"></tbody>
+    </table>
+  </div>
+
+    <!-- Botón flotante para añadir un pedido de venta a un cliente -->
+    <button id="btn-confirmar-pago" class="btn-flotante-pago" title="Añadir venta cliente">
+        <i class="fas fa-plus"></i>
+    </button>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <script src="{% static 'js/buscar_clientes.js' %}"></script>
+    <script src="{% static 'js/aniadir_venta.js' %}"></script>
+    <script src="{% static 'js/show_dialog.js' %}"></script>
+{% endblock %}

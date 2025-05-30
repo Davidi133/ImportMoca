@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Pedidos Realizados{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1 class="h2-title">Pedidos Realizados</h1>
+
+    <!-- Filtro por estado -->
+    <div class="filtro-estado">
+        <select id="filtro-estado">
+          <option value="">Todos</option>
+          <option value="pendiente">Pendiente</option>
+          <option value="procesado">Procesado</option>
+          <option value="cancelado">Cancelado</option>
+            <option value="bc">Pedidos BC</option>
+        </select>
+
+    </div>
+
+    <!-- Tabla de pedidos -->
+    <div class="tabla-resultados">
+        <table id="tabla-pedidos">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="check-todos"></th>
+                    <th>ID Pedido</th>
+                    <th>Fecha creación</th>
+                    <th>Fecha procesado</th>
+                    <th>Fecha Utilizada</th>
+                    <th>Almacén</th>
+                    <th>Familias</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pedido in pedidos %}
+                <tr data-estado="{{ pedido.estado }}">
+                    <td><input type="checkbox" class="check-pedido" value="{{ pedido.id }}"></td>
+                    <td>{{ pedido.id }}</td>
+                    <td>{{ pedido.fecha_creacion|date:"d/m/Y H:i" }}</td>
+                    <td>{{ pedido.fecha_procesado|date:"d/m/Y H:i" }}</td>
+                    <td>{{ pedido.fecha_prevision }}</td>
+                    <td>{{ pedido.almacen }}</td>
+                    <td>{{ pedido.familias }}</td>
+                    <td>{{ pedido.get_estado_display }}</td>
+                    <td>
+                        <a href="{% url 'pedidos:recuperar_pedido' pedido.id %}" class="btn-primary">Recuperar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Tabla de pedidos BC -->
+
+    <div class="tabla-resultados" id="tabla-bc" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Pedido</th>
+                    <th>Pedidos en BC</th>
+                    <th>Proveedores</th>
+                    <th>Fecha creación resumen</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for resumen in resúmenes_bc %}
+                <tr>
+                    <td>{{ resumen.pedido.id }}</td>
+                    <td>{{ resumen.pedidos_bc_ids_list|join:", " }}</td>
+                    <td>{{ resumen.proveedores_list|join:", " }}</td>
+                    <td>{{ resumen.fecha_creado|date:"d/m/Y H:i" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Botón flotante para confirmar en BC -->
+    <button id="btn-confirmar-pago" class="btn-flotante-pago" title="Crear Pedido BC" onclick="confirmarPedidosBC()">
+        <i class="fas fa-tasks"></i>
+    </button>
+</div>
+
+{% block extra_js %}
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="{% static 'js/confirmar_BC.js' %}"></script>
+    <script src="{% static 'js/show_dialog.js' %}"></script>
+{% endblock %}
+
+{% endblock %}

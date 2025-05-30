@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Recuperar Pedido{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Formulario oculto para JS -->
+    <h1 class="titulo-seccion">Pedido Recuperado #{{ pedido.id }}</h1>
+
+    <form method="get" id="form-repetir-pedido" class="formulario">
+
+      <!-- Fila: Fecha -->
+      <div class="form-row">
+        <div class="form-col">
+          <label for="fecha">Fecha de referencia:</label>
+          <input type="month" id="fecha" name="fecha" class="form-control readonly-field" required value="{{ selected_fecha }}" readonly>
+        </div>
+      </div>
+
+      <!-- Fila: Almacén + Familia + Artículo -->
+      <div class="form-row">
+        <div class="form-col">
+          <label for="almacen">Almacén:</label>
+          <select id="almacen" name="almacen" disabled>
+            <option value="{{ pedido.almacen }}" selected>{{ pedido.almacen }}</option>
+          </select>
+        </div>
+        <div class="form-col">
+          <label for="familia">Familia de Artículos:</label>
+          <select name="familia" id="familia" multiple data-trigger>
+            {% for f in familias %}
+              <option value="{{ f }}" {% if f in selected_familias %}selected{% endif %}>{{ f }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-col">
+          <label for="articulo">Artículo (opcional):</label>
+          <select name="articulo" id="articulo" multiple data-trigger>
+            {% for a in articulos_db %}
+              <option value="{{ a.codigo }}" {% if a.codigo in selected_codigos %}selected{% endif %}>
+                {{ a.descripcion }} – {{ a.codigo }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <!-- Botón estilo 'Buscar' -->
+      <div class="boton-formulario">
+        <button type="button" id="btn-actualizar">Actualizar</button>
+      </div>
+    </form>
+
+
+    <div style="display: flex; justify-content: flex-start;">
+        <div style="margin-bottom: 10px;">
+            <label for="porcentaje-masivo" style="font-weight: bold; display: block;">Aplicar %:</label>
+            <input type="number" id="porcentaje-masivo" value="100" placeholder="Ej: 110" min="0" max="1000"
+                   style="width: 80px; padding: 6px; border-radius: 6px; border: 1px solid #ccc; text-align: center;">
+        </div>
+    </div>
+
+
+    {% if articulos %}
+    <div class="tabla-resultados">
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th style="display: none;">Identificador</th>
+                    <th>Descripción</th>
+                    <th>Familia</th>
+                    <th>Almacén</th>
+                    <th>Fecha Ref.</th>
+                    <th>Stock Seguridad</th>
+                    <th>Previsión Venta</th>
+                    <th>Cantidad de Compra</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpo-tabla-articulos">
+                {% for art in articulos %}
+                <tr>
+                    <td>{{ art.codigo }}</td>
+                    <td style="display: none;">{{ articulo.identificacion }}</td>
+                    <td>{{ art.descripcion }}</td>
+                    <td>{{ art.familia }}</td>
+                    <td>{{ art.almacen }}</td>
+                    <td>{{ art.fecha }}</td>
+                    <td>{{ art.stock_seguridad }}</td>
+                    <td>{{ art.prevision_venta }}</td>
+                    <td>
+                        <input type="number"
+                            name="cantidad"
+                            value="{{ art.cantidad_stock_final|floatformat:'0' }}"
+                            class="input-stock"
+                            data-original-value="{{ art.cantidad_stock_final }}"
+                            data-codigo="{{ art.codigo }}">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p>No se encontraron artículos en este pedido.</p>
+    {% endif %}
+</div>
+<form id="form-pedido" method="post">
+  {% csrf_token %}
+  <input type="hidden" name="datos_tabla" id="datos_tabla" />
+</form>
+
+<!-- Botón de confirmación de repetición -->
+ <button id="btn-confirmar-pago" class="btn-flotante-pago" title="Crear Pedido" onclick="confirmarPedido()">
+        <i class="fas fa-sync-alt"></i>
+    </button>
+{% endblock %}
+
+ {% block extra_js %}
+        <script> const TODOS_ARTICULOS = {{ todos_los_articulos_json|safe }}; </script>
+        <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+        <script src="{% static 'js/show_dialog.js' %}"></script>
+        <script src="{% static 'js/confirmar_pedido.js' %}"></script>
+        <script src="{% static 'js/recuperar_articulos.js' %}"></script>
+        <script src="{% static 'js/recuperar_pedido.js' %}"></script>
+        <script src="{% static 'js/porcentaje_masivo.js' %}"></script>
+
+{% endblock %}

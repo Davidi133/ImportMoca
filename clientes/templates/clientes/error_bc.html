@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1>Oops... algo ha fallado</h1>
+    <p>No ha sido posible conectar con Business Central.</p>
+    {% if detalles %}
+        <pre class="text-muted mt-3">{{ detalles }}</pre>
+    {% endif %}
+    <a href="/importmoca/clientes/" class="btn btn-primary mt-4">Reintentar</a>
+</div>
+{% endblock %}

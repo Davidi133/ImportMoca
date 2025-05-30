@@ -1,0 +1,536 @@
+.container {
+  max-width: 1100px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 30px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  width: 96%;
+  overflow-x: visible;
+  position: relative;
+}
+
+/* Oculta el icono de flecha en el select2 */
+.select2-selection__arrow {
+    display: none !important;
+}
+
+h1 {
+    color: #1f1f4b;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.campo-form label {
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.campo-form select,
+.campo-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.boton-formulario {
+    text-align: right;
+}
+
+.boton-formulario button {
+    background-color: #1f1f4b;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.boton-formulario button:hover {
+    background-color: #3d3d7a;
+}
+
+.tabla-resultados table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+}
+
+.tabla-resultados th,
+.tabla-resultados td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.tabla-resultados th {
+    background-color: #1f1f4b;
+    color: white;
+}
+
+.tabla-resultados tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+.grupo-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.campo-form {
+    flex: 1;
+    min-width: 220px;
+}
+
+
+/* ==== ESTRUCTURA GENERAL ==== */
+
+
+.form-container {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrapper {
+  background-color: white;
+  padding: 30px;
+  width: 700px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.h2-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2148;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+
+/* ==== FORMULARIO ==== */
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Fix para alinear todos los inputs/selects iguales */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+select {
+  width: 100%;
+  height: 42px;
+  padding: 10px;
+  padding-right: 30px; /* espacio para la flecha */
+  font-size: 0.95rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  background-color: white;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg%20fill%3D'%23333'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%20width%3D'24'%20xmlns%3D'http%3A//www.w3.org/2000/svg'%3E%3Cpath%20d%3D'M7%2010l5%205%205-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+}
+
+
+.form-col select,
+.form-col .choices {
+  width: 100% !important;
+  max-width: none;
+}
+
+.form-row {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.form-col {
+  flex: 1;
+  min-width: 250px;
+}
+
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+/* ==== CHECKBOX ESTILO BOTÓN ==== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.checkbox-toggle {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  background-color: #e74c3c;
+  color: white;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.checkbox-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-toggle.active {
+  background-color: #4CAF50;
+}
+
+/* Aplica íconos antes del texto */
+.checkbox-toggle.active::before,
+.checkbox-toggle.inactive::before {
+  content: '✔';
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.checkbox-toggle.inactive::before {
+  content: '✘';
+}
+
+input[type="text"] {
+  height: 42px;
+}
+
+/* ==== INTERRUPTOR CENTROS DE TRABAJO === */
+
+.switch-box {
+  display: flex;
+  width: 200px;
+  margin-top: 10px;
+  height: 42px;
+  margin-bottom: 15px;
+}
+
+
+.switch-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 100%;
+  line-height: 1;
+}
+
+.switch-option:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+.switch-option.active {
+  background-color: #33c0d4;
+  color: white;
+}
+
+/* Esquinas redondeadas SOLO para los extremos */
+.switch-option:first-child.active {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.switch-option:last-child.active {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+/* ==== BOTONES SIGUIENTE / ATRÁS ==== */
+.btn-next-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.btn-next-container button {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #1b1442;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn-next-container button:hover {
+  background-color: #3F51B5;
+}
+
+/* Colores para botones toggle */
+.switch-option[data-value="si"].active {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+}
+
+.switch-option[data-value="no"].active {
+  background-color: #e74c3c; /* Rojo */
+  color: white;
+}
+
+textarea {
+  resize: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  height: 100px;
+  width: 100%;
+}
+
+
+#nimaInputWrapper {
+  margin-top: 15px;
+}
+
+input[type="file"] {
+  font-size: 0.95rem;
+}
+
+hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.small {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* ==== INPUT FILE BONITO ==== */
+.file-upload {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+.file-upload input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.file-upload-label {
+  display: inline-block;
+  background-color: #33c0d4;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload-label:hover {
+  background-color: #1b98b0;
+}
+
+
+.progress-container {
+  margin: 30px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: #ccc;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #1f2148;
+  transition: width 0.3s ease;
+}
+
+.switch-box .switch-option.special-btn {
+  all: unset;
+  flex: 1;
+  text-align: center;
+  height: 42px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bordes redondeados permanentes */
+.switch-box .switch-option.special-btn:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.switch-box .switch-option.special-btn:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Activo */
+.switch-box .switch-option.special-btn.active {
+  background-color: #33c0d4;
+  color: white;
+}
+
+/* Evitar hover heredado */
+.switch-box .switch-option.special-btn:hover {
+  background-color: inherit;
+  color: inherit;
+}
+
+/* Hover solo para los NO activos */
+.switch-box .switch-option.special-btn:not(.active):hover {
+  background-color: #2ca3b2; /* Azul más oscuro */
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+/* Los activos mantienen su estilo al hacer hover */
+.switch-box .switch-option.special-btn.active:hover {
+  background-color: #33c0d4;
+  color: white;
+}
+
+/* === ARCHIVADORES EN LÍNEA === */
+.archivadores-row .form-col {
+  min-width: 180px;
+}
+
+.archivadores-row input[type="number"] {
+  width: 100%;
+}
+
+.checkbox-toggle.disabled-toggle {
+  pointer-events: none; /* bloquea el click en todo el toggle */
+  opacity: 0.8;
+}
+
+/* === Paso final visualmente bonito === */
+
+#paso-final {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+/* Cambiar color barra al 100% */
+.progress-fill.finalizado {
+  background-color: #33c0d4;
+}
+
+.h2-title {
+  transition: color 0.6s ease;
+}
+
+.progress-fill {
+  transition: width 0.4s ease, background-color 0.6s ease;
+}
+
+.gracias-title {
+  font-size: 2rem;
+  color: #33c0d4;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.gracias-text {
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes cargaBarraFinal {
+  from { width: 0%; background-color: #1f2148; }
+  to { width: 100%; background-color: #33c0d4; }
+}
+
+.progress-fill.anim-cargando {
+  animation: cargaBarraFinal 2.5s ease forwards;
+}
+
+

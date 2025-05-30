@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Import Moca{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <h1>Previsiones de venta</h1>
+    <!-- Botón de recarga -->
+    <button id="btn-recargar-familias" class="btn-familia-recarga" title="Recargar familias y artículos">
+      <i class="fas fa-sync-alt"></i>
+    </button>
+
+
+  <form method="get" action="{% url 'buscar_previsiones' %}" class="formulario">
+
+    <!-- Fecha -->
+    <div class="form-row">
+      <div class="form-col">
+        <label for="fecha">Fecha de referencia:</label>
+        <input type="month" id="fecha" name="fecha" class="form-control" required value="{{ selected_fecha }}">
+      </div>
+    </div>
+
+    <!-- Almacén, Familia, Artículo en 1 línea -->
+    <div class="form-row">
+      <div class="form-col">
+        <label for="almacen">Almacén:</label>
+        <select id="almacen" name="almacen">
+          <option value="" {% if not selected_almacen %}selected{% endif %}>-- Selecciona un almacén --</option>
+          <option value="MALLORCA" {% if selected_almacen == "MALLORCA" %}selected{% endif %}>MALLORCA</option>
+          <option value="IBIZA" {% if selected_almacen == "IBIZA" %}selected{% endif %}>IBIZA</option>
+          <option value="MENORCA" {% if selected_almacen == "MENORCA" %}selected{% endif %}>MENORCA</option>
+        </select>
+
+      </div>
+      <div class="form-col">
+        <label for="familia">Familia de Artículos:</label>
+       <select name="familia" id="familia" multiple data-trigger>
+          {% for f in familias %}
+            <option value="{{ f }}" {% if f in selected_familia %}selected{% endif %}>{{ f }}</option>
+          {% endfor %}
+        </select>
+
+      </div>
+      <div class="form-col">
+        <label for="articulo">Artículo (opcional):</label>
+      <select name="articulo" id="articulo" multiple data-trigger>
+          {% for a in articulos %}
+            {% with valor=a.codigo|stringformat:"s"|add:"|||"|add:a.descripcion %}
+              <option value="{{ valor }}" {% if valor in selected_articulo %}selected{% endif %}>
+                {{ a.descripcion }} - {{ a.codigo }}
+              </option>
+            {% endwith %}
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="boton-formulario">
+      <button type="submit">Buscar</button>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+
+    <h1 class="h2-title">Resultados de Previsiones</h1>
+
+<div style="display: flex; justify-content: flex-end;">
+      <div style="margin-bottom: 10px;">
+        <label for="porcentaje-masivo" style="font-weight: bold; display: block;">Aplicar %:</label>
+        <input type="number" id="porcentaje-masivo" placeholder="Ej: 110" min="0" max="1000"
+               style="width: 80px; padding: 6px; border-radius: 6px; border: 1px solid #ccc; text-align: center;">
+      </div>
+    </div>
+
+    {% if resultados %}
+        <div class="tabla-resultados">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th style="display: none;">Identificador</th>
+                        <th>Descripción</th>
+                        <th>Familia</th>
+                        <th>Almacén</th>
+                        <th>Fecha</th>
+                        <th>Stock Seguridad</th>
+                        <th>Previsión Venta</th>
+                        <th>Cantidad Stock Final</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo-tabla-articulos">
+                    {% for articulo in resultados %}
+                    <tr>
+                        <td>{{ articulo.codigo }}</td>
+                        <td style="display: none;">{{ articulo.identificacion }}</td>
+                        <td>{{ articulo.descripcion }}</td>
+                        <td>{{ articulo.familia }}</td>
+                        <td>{{ articulo.almacen }}</td>
+                        <td>{{ articulo.fecha }}</td>
+                        <td>{{ articulo.stock_seguridad }}</td>
+                        <td>{{ articulo.prevision_venta }}</td>
+                        <td>
+                           <input type="number"
+                               name="cantidad"
+                               value="{{ articulo.cantidad_stock_final|floatformat:'0' }}"
+                               class="input-stock"
+                               data-original-value="{{ articulo.cantidad_stock_final }}"
+                               data-codigo="{{ articulo.codigo }}">
+
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>No se encontraron resultados para los filtros seleccionados.</p>
+    {% endif %}
+</div>
+    <button id="btn-confirmar-pago" class="btn-flotante-pago" title="Crear Pedido" onclick="confirmarPedido()">
+        <i class="fas fa-shopping-cart"></i>
+    </button>
+
+    <script> const TODOS_ARTICULOS = {{ todos_los_articulos_json|safe }};
+              window.ARTICULOS_SELECCIONADOS = {{ selected_articulo|safe }};
+              window.FAMILIAS_INICIALES = {{ selected_familia|safe }};
+    </script>
+
+{% endblock %}
+ {% block extra_js %}
+        <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+        <script src="{% static 'js/show_dialog.js' %}"></script>
+        <script src="{% static 'js/confirmar_pedido.js' %}"></script>
+        <script src="{% static 'js/buscar_previsiones.js' %}"></script>
+        <script src="{% static 'js/porcentaje_masivo.js' %}"></script>
+        <script src="{% static 'js/actualizar_datos_boton.js' %}"></script>
+{% endblock %}

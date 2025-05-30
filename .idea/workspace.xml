@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7926130d-8441-43f7-a864-bc5598fbe39e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportMoca/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportMoca/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportMoca/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportMoca/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportMoca/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/scripts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/static/js/aniadir_venta.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/static/js/buscar_clientes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/static/js/confirmar_BC_venta.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/static/js/crear_pedido.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/static/js/recuperar_articulos_bc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/templates/clientes/buscar_clientes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/templates/clientes/crear_pedido.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/templates/clientes/recuperar_pedido_bc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientes/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/ip_address_checker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/business_central.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/migrations/0002_lineapedido_cantidad_stock_final.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/migrations/0003_lineapedido_identificador.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/migrations/0004_pedido_fecha_procesado.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/migrations/0005_resumenpedidobusinesscentral.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/scripts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/static/js/confirmar_BC.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/static/js/confirmar_pedido.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/static/js/recuperar_articulos.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/static/js/recuperar_pedido.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/templates/pedidos/lista_pedidos.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/templates/pedidos/recuperar_pedido.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedidos/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/management/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/management/commands/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/management/commands/importar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/management/commands/importar_bc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/management/commands/sincronizar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/migrations/0002_alter_articuloprevision_codigo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/migrations/0003_alter_articuloprevision_unique_together.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/migrations/0004_remove_articuloprevision_subfamilia.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/services.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/static/css/calculadora.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/static/css/newform.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/static/css/otros.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/static/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/static/img/icon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/static/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/static/js/actualizar_datos_boton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/static/js/buscar_previsiones.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/static/js/porcentaje_masivo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/static/js/show_dialog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/templates/previsiones/buscar_previsiones.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previsiones/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/migrations/0002_sustitucionarticulo_nombre.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/static/js/confirmar_sustitucion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/static/js/sustitucion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/templates/sustituciones/sustituciones.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sustituciones/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wfastcgi_venv.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Davidi133"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Davidi133/ImportMoca",
+    "accountId": "c205f615-170f-4621-8665-89fdda03e9a5"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2xo9FgCOLgSaDGVI0MECXwkAK09" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/dbelando/Desktop/dv_importmoca2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="dv_importmoca2" type="Python.DjangoServer" factoryName="Django server">
+      <module name="dv_importmoca2" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.26053.29" />
+        <option value="bundled-python-sdk-b1dbf8ef85a6-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.26053.29" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7926130d-8441-43f7-a864-bc5598fbe39e" name="Changes" comment="" />
+      <created>1748593456528</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748593456528</updated>
+      <workItem from="1748593457789" duration="425000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

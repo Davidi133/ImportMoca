@@ -1,0 +1,336 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.titulo-izquierda {
+  text-align: left !important;
+}
+
+main {
+    flex: 1;
+}
+
+.form-control {
+  width: 200px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.input-stock {
+  width: 90px;
+  padding: 6px 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: border-color 0.3s ease;
+}
+
+.input-stock:focus {
+  outline: none;
+  border-color: #33c0d4;
+}
+
+
+header {
+    background: #1b1442;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: flex-start;
+    gap: 40px;
+}
+
+.logo {
+    height: 50px;
+    max-width: 120px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding-left: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #FFA500;
+}
+
+.btn-header {
+    padding: 10px 15px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+footer {
+    background: #1b1442;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #1f2148;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.2rem;
+    color: #33c0d4;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 20%;
+    height: 5px;
+    background-color: #ccc;
+    margin: 0;
+    padding: 0;
+}+
+
+/* Estilos para la ventana de dialogo */
+
+dialog {
+  border: none;
+  outline: none;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  padding: 1.5rem;
+  max-width: 400px;
+  width: 90%;
+}
+
+.dialog-box {
+  border: none;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.dialog-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#dialog-confirm-btn {
+  background-color: #33c0d4;;
+  color: white;
+}
+
+#dialog-confirm-btn:hover {
+  background-color: #58e2f4;;
+  color: white;
+}
+
+#dialog-cancel-btn {
+  background-color: #ccc;
+}
+
+/* Estilos específicos para la página 404 */
+.page-404 {
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title-404 {
+  font-size: 3rem;
+  color: #33c0d4;
+  font-weight: bold;
+}
+
+.text-404 {
+  font-size: 1.2rem;
+  margin: 15px auto 25px;
+  color: #333;
+  max-width: 500px;
+}
+
+.btn-contact {
+  display: inline-block;
+  padding: 12px 30px;
+  border: 2px solid #33c0d4;
+  border-radius: 25px;
+  color: #33c0d4;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-contact:hover {
+  background-color: #e7a04a; /* color naranja al hacer hover */
+  border-color: #e7a04a;
+   color: #1f2148;
+}
+
+
+/* Botón bonito consistente con otros botones del proyecto */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #33c0d4;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #58e2f4;
+}
+
+#cliente.choices__input {
+  width: 100%;
+}
+
+.choices {
+  width: 100%;
+}
+.filtro-estado {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  max-width: 300px;
+}
+
+.filtro-estado label {
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.filtro-estado select {
+  padding: 6px 10px;
+  font-size: 14px;
+  width: 150px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn-familia-recarga {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: white;
+  color: #333;
+  border: 2px solid #249fb1;
+  border-radius: 50%;
+  padding: 10px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-familia-recarga:hover {
+  background-color: #f5f5f5;
+  border-color: #58e2f4;
+    color: #58e2f4;
+}
+
+.btn-familia-recarga i {
+  font-size: 18px;
+}
+
+#loader{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner{
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Logo a la izq, menú a la derecha */
+      width: 100%;
+      padding: 0 30px;
+    }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  .logo {
+    height: 40px;
+    max-width: 100px;
+  }
+}

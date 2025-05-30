@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Crear pedido cliente{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <h1>Crear pedido</h1>
+
+<form method="get" action="" class="formulario" id="form-pedido">
+    <input type="hidden" id="cliente-id" name="cliente" value="{{ cliente_id }}">
+    <!-- Fecha -->
+    <div class="form-row">
+      <div class="form-col">
+        <label for="fecha">Fecha de referencia:</label>
+        <input type="month" id="fecha" name="fecha" class="form-control" required value="{{ selected_fecha }}" readonly disabled>
+      </div>
+    </div>
+
+    <!-- Almacén, Familia, Artículo en 1 línea -->
+    <div class="form-row">
+      <div class="form-col">
+        <label for="almacen">Almacén:</label>
+        <select id="almacen" name="almacen">
+          <option value="" {% if not selected_almacen %}selected{% endif %}>-- Selecciona un almacén --</option>
+          <option value="MALLORCA" {% if selected_almacen == "MALLORCA" %}selected{% endif %}>MALLORCA</option>
+          <option value="IBIZA" {% if selected_almacen == "IBIZA" %}selected{% endif %}>IBIZA</option>
+          <option value="MENORCA" {% if selected_almacen == "MENORCA" %}selected{% endif %}>MENORCA</option>
+        </select>
+
+      </div>
+      <div class="form-col">
+        <label for="familia">Familia de Artículos:</label>
+       <select name="familia" id="familia" multiple data-trigger>
+          {% for f in familias %}
+            <option value="{{ f }}" {% if f in selected_familia %}selected{% endif %}>{{ f }}</option>
+          {% endfor %}
+        </select>
+
+      </div>
+      <div class="form-col">
+        <label for="articulo">Artículo (opcional):</label>
+      <select name="articulo" id="articulo" multiple data-trigger>
+          {% for a in articulos %}
+            {% with valor=a.codigo|stringformat:"s"|add:"|||"|add:a.descripcion %}
+              <option value="{{ valor }}" {% if valor in selected_articulo %}selected{% endif %}>
+                {{ a.descripcion }} - {{ a.codigo }}
+              </option>
+            {% endwith %}
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="boton-formulario">
+      <button type="button" id="btn-actualizar-articulos">Actualizar</button>
+    </div>
+
+  </form>
+</div>
+
+<div class="container">
+
+    <h1 class="h2-title">Articulos</h1>
+
+<div style="display: flex; justify-content: flex-end;">
+      <div style="margin-bottom: 10px;">
+        <label for="porcentaje-masivo" style="font-weight: bold; display: block;">Aplicar %:</label>
+        <input type="number" id="porcentaje-masivo" placeholder="Ej: 110" min="0" max="1000"
+               style="width: 80px; padding: 6px; border-radius: 6px; border: 1px solid #ccc; text-align: center;">
+      </div>
+    </div>
+        <div class="tabla-resultados">
+            <table>
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Descripción</th>
+                  <th>Familia</th>
+                  <th>Almacén</th>
+                  <th>Cantidad</th>
+                </tr>
+              </thead>
+            <tbody id="cuerpo-tabla-articulos">
+            </tbody>
+            </table>
+        </div>
+</div>
+    <button id="btn-confirmar-pago" class="btn-flotante-pago" title="Crear Pedido" onclick="confirmarPedidoBC()">
+        <i class="fas fa-shopping-cart"></i>
+    </button>
+
+    <script>
+        window.TODOS_ARTICULOS = {{ todos_los_articulos_json|safe }};
+        window.ARTICULOS_SELECCIONADOS = {{ selected_articulo|safe }};
+        window.FAMILIAS_INICIALES = {{ selected_familia|safe }};
+        window.CUSTOMER_ID = "{{ customerId }}";
+        window.SELL_TO_NAME = "{{ sellToName }}";
+        window.SELL_TO_ADDRESS = "{{ sellToAddressLine1 }}";
+        window.SELL_TO_CITY = "{{ sellToCity }}";
+        window.SELL_TO_POSTCODE = "{{ sellToPostCode }}";
+    </script>
+
+{% endblock %}
+ {% block extra_js %}
+        <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+        <script src="{% static 'js/show_dialog.js' %}"></script>
+        <script src="{% static 'js/porcentaje_masivo.js' %}"></script>
+        <script src="{% static 'js/crear_pedido.js' %}"></script>
+        <script src="{% static 'js/confirmar_BC_venta.js' %}"></script>
+{% endblock %}

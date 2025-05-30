@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Pedido desde Business Central{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="titulo-seccion">Pedido Recuperado</h1>
+
+    <form method="get" id="form-repetir-pedido" class="formulario">
+        <div class="form-row">
+            <div class="form-col">
+                <label for="fecha">Fecha de referencia:</label>
+                <input type="month" id="fecha" name="fecha" class="form-control readonly-field" required value="{{ selected_fecha }}" readonly>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-col">
+                <label for="almacen">Almacén:</label>
+                <select id="almacen" name="almacen" disabled>
+                    <option value="{{ pedido.almacen }}" selected>{{ pedido.almacen }}</option>
+                </select>
+            </div>
+            <div class="form-col">
+                <label for="familia">Familia de Artículos:</label>
+                <select name="familia" id="familia" multiple data-trigger>
+                    {% for f in familias %}
+                      <option value="{{ f }}" {% if f in selected_familias %}selected{% endif %}>{{ f }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-col">
+                <label for="articulo">Artículo (opcional):</label>
+                <select name="articulo" id="articulo" multiple data-trigger>
+                    {% for a in articulos_db %}
+                      <option value="{{ a.codigo }}" {% if a.codigo in selected_codigos %}selected{% endif %}>
+                        {{ a.descripcion }} – {{ a.codigo }}
+                      </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="boton-formulario">
+            <button type="button" id="btn-actualizar">Actualizar</button>
+        </div>
+    </form>
+
+    <div style="display: flex; justify-content: flex-start;">
+            <div style="margin-bottom: 10px;">
+                <label for="porcentaje-masivo" style="font-weight: bold; display: block;">Aplicar %:</label>
+                <input type="number" id="porcentaje-masivo" value="100" placeholder="Ej: 110" min="0" max="1000"
+                       style="width: 80px; padding: 6px; border-radius: 6px; border: 1px solid #ccc; text-align: center;">
+            </div>
+        </div>
+
+    {% if articulos %}
+    <div class="tabla-resultados">
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Descripción</th>
+                    <th>Familia</th>
+                    <th>Almacén</th>
+                    <th>Fecha Ref.</th>
+                    <th>Cantidad de Compra</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpo-tabla-articulos">
+                {% for art in articulos %}
+                <tr>
+                    <td>{{ art.codigo }}</td>
+                    <td>{{ art.descripcion }}</td>
+                    <td>{{ art.familia }}</td>
+                    <td>{{ art.almacen }}</td>
+                    <td>{{ art.fecha }}</td>
+                    <td>
+                        <input type="number"
+                               name="cantidad"
+                               value="{{ art.cantidad_stock_final|floatformat:'0' }}"
+                               class="input-stock"
+                               data-original-value="{{ art.cantidad_stock_final }}"
+                               data-codigo="{{ art.codigo }}">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p>No se encontraron artículos en este pedido.</p>
+    {% endif %}
+</div>
+
+<form id="form-pedido" method="post">
+  {% csrf_token %}
+  <input type="hidden" name="datos_tabla" id="datos_tabla" />
+</form>
+
+<!-- Botón de confirmación -->
+ <button id="btn-confirmar-pago" class="btn-flotante-pago" title="Crear Pedido" onclick="confirmarPedidoBC()">
+        <i class="fas fa-shopping-cart"></i
+    </button>
+{% endblock %}
+
+{% block extra_js %}
+        <script>
+      window.CUSTOMER_ID = "{{ customerId }}";
+      window.SELL_TO_NAME = "{{ sellToName }}";
+      window.SELL_TO_ADDRESS = "{{ sellToAddressLine1 }}";
+      window.SELL_TO_CITY = "{{ sellToCity }}";
+      window.SELL_TO_POSTCODE = "{{ sellToPostCode }}";
+    </script>
+
+    <script>  window.TODOS_ARTICULOS = {{ todos_los_articulos_json|safe }}; </script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="{% static 'js/show_dialog.js' %}"></script>
+    <script src="{% static 'js/confirmar_pedido.js' %}"></script>
+    <script src="{% static 'js/recuperar_articulos_bc.js' %}"></script>
+    <script src="{% static 'js/porcentaje_masivo.js' %}"></script>
+    <script src="{% static 'js/confirmar_BC_venta.js' %}"></script>
+{% endblock %}

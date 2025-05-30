@@ -1,0 +1,312 @@
+/* Layout principal */
+.panel-calculadora-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 40px auto;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+.panel-ofertas-lateral {
+  flex: 1;
+  min-width: 280px;
+}
+
+.panel-conversor {
+  flex: 1;
+  min-width: 400px;
+  text-align: center;
+}
+
+/* Panel inferior: precios y edición */
+.panel-tablas-inferior {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.panel-precios,
+.panel-editable {
+  width: 100%;
+  text-align: center;
+}
+
+/* Conversor más pequeño */
+#tabla-conversor-hot {
+  width: 450px;
+  margin: 0 auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo Excel general */
+.ht_master .htCore {
+  border-collapse: collapse !important;
+  font-size: 14px;
+  border-radius: 0;
+}
+
+.ht_master .htCore td,
+.ht_master .htCore th {
+  border: 1px solid #ccc !important;
+  padding: 4px 8px !important;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Encabezados */
+.htColumnHeaders th,
+.htRowHeaders th {
+  background: #f1f3f5 !important;
+  font-weight: bold;
+  color: #1c1c1c;
+}
+
+/* Corregir cabecera flotante */
+.ht_master {
+  overflow: visible !important;
+}
+.ht_clone_top {
+  z-index: 2 !important;
+}
+
+/* Eliminar headers flotantes a la izquierda */
+.ht_clone_top_left_corner,
+.ht_clone_left {
+  display: none !important;
+}
+
+/* Títulos */
+h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #1b3c6e;
+  font-weight: 600;
+}
+/* Eliminar bordes flotantes arriba del todo */
+.ht_clone_top,
+.ht_clone_top_left_corner {
+  display: none !important;
+}
+
+/* Eliminar clones de Handsontable que no usamos */
+.ht_clone_top,
+.ht_clone_bottom,
+.ht_clone_top_left_corner {
+  display: none !important;
+}
+
+/* Corregir espaciado vertical causado por overflow */
+.ht_master {
+  overflow: initial !important;
+}
+.info-oferta p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+.info-oferta span {
+  color: #1b3c6e;
+  font-weight: 600;
+}
+#pedido_id {
+  max-height: 160px;      /* Altura visible */
+  overflow-y: auto;       /* Scroll vertical si excede */
+}
+
+/* Eliminar altura y espacio de clones ocultos */
+.ht_clone_top,
+.ht_clone_bottom {
+  height: 0 !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Eliminar borde azul al hacer clic en celdas */
+.htCore td:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.htCore td.ht__highlight {
+  box-shadow: none !important;
+}
+/* Eliminar completamente el borde azul de selección de celda activa */
+.htCore td.current,
+.htCore td.area,
+.htCore td.highlight,
+.htCore td.ht__active_highlight,
+.htCore td.ht__highlight,
+.htCore td.ht__selection {
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.btn-aplicar {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #1b3c6e;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 100%;
+}
+
+.btn-aplicar:hover {
+  background-color: #274e8e;
+}
+
+.btn-aplicar:active {
+  transform: scale(0.98);
+}
+
+.formulario-oferta input,
+.formulario-oferta select {
+  width: 100%;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formulario-oferta label {
+  display: block;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.checkbox-label {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  margin: 8px 0;
+  width: 100%;
+}
+.checkbox-label span {
+  min-width: 150px;
+}
+
+
+.checkbox-label input[type="checkbox"] {
+  margin: 0;
+  padding: 0;
+}
+.panel-zona-editable {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.tabla-editable-container {
+  flex: 1;
+  min-width: 450px;
+  max-width: 600px;
+}
+
+.formulario-zona-editable {
+  flex: 1;
+  min-width: 350px;
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+/* Ajustamos el tamaño de los inputs numéricos */
+input[type="number"] {
+  min-width: 80px;
+  padding: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Opcional: Ajustar el tamaño general del formulario */
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+label {
+  min-width: 160px; /* Asegura que las etiquetas estén alineadas */
+}
+
+.btn-confirmar {
+  margin-top: 16px;
+  background-color:#33c0d4;;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-confirmar:hover {
+  background-color: #58e2f4;
+}
+
+#btn-confirmar-pago.btn-flotante-pago {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #33c0d4;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn-confirmar-pago.btn-flotante-pago:hover:not(:disabled) {
+  background-color: #58e2f4;
+  transform: scale(1.05);
+}
+
+#btn-confirmar-pago.btn-flotante-pago:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#btn-confirmar-pago svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .panel-calculadora-wrapper,
+  .panel-tablas-inferior {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
